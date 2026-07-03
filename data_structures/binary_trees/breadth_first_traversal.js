@@ -1,4 +1,4 @@
-// Implementation of Depth-First Search Algorithm
+// Implementation of Breadth-First Search Algorithm
 
 class Node {
     constructor(val) {
@@ -8,24 +8,24 @@ class Node {
     }
 }
 
-const depthFirstValues = (root) => {
+const breadthFirstValues = (root) => {
+
+    if (root === null) return [];
+    const queue = [ root ];
     const result = [];
-    const stack = [ root ];
 
-    while (stack.length > 0) {
-        const current = stack.pop();
+    while (queue.length > 0) {
+
+        const current = queue.shift();
         result.push(current.val);
+ 
+        if (current.left !== null) queue.push(current.left);
+        if (current.right !== null) queue.push(current.right);
 
-        if (current.right) {
-            stack.push(current.right);
-        }
-        if (current.left) {
-            stack.push(current.left);
-        }
     }
-
     return result;
-};
+
+}
 
 
 const a = new Node("a");
@@ -41,5 +41,5 @@ b.left = d;
 b.right = e;
 c.right = f;
 
-console.log(depthFirstValues(a));
+console.log(breadthFirstValues(a));
 
