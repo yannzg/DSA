@@ -1,4 +1,4 @@
-// Find the minimum node value in a binary tree recursively
+// Find the maximum path inside a binary tree recursively
 
 class Node {
     constructor(val) {
